@@ -4,21 +4,11 @@ from bs4 import BeautifulSoup
 import re
 
 
-# Hàm sửa URL xuất phát
-# Truyền vào URL xuất phát
-# Trả về URL xuất phát chuẩn để gửi lệnh Requests không bị lỗi
-def sua_url_goc(url_goc):
-    if url_goc[-1] == '/':
-        url_goc = url_goc[0: -1]
-        return url_goc
-    else:
-        return url_goc
-
 
 # Hàm tìm kiếm các URL liên quan để tải xuống
 # Truyền vào URL cần được quét, và URL xuất phát
 # Kết quả trả về là tập hợp các URL tìm được
-def tim_url_lien_quan(url, url_goc):
+def tim_url_lien_quan(url, url_chinh):
     url_tim_duoc = set()
     link = requests.get(url)
     link_soup = BeautifulSoup(link.text, 'html.parser')
@@ -31,7 +21,7 @@ def tim_url_lien_quan(url, url_goc):
             url_tim_duoc.add(a)
         else:
             if re.match(mau2, a):
-                url_lien_quan = f'{url_goc}{a}'
+                url_lien_quan = f'{url_chinh}{a}'
                 url_tim_duoc.add(url_lien_quan)
     return url_tim_duoc
 
