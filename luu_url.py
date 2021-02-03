@@ -30,7 +30,7 @@ def luu_tat_ca_file(history, so_luong_trang):
 
 
 def main():
-    tao_thu_muc('trioc')
+    tao_thu_muc('hungph')
     luu_file('https://baomoi.com/', 2)
 
 
