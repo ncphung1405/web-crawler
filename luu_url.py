@@ -4,23 +4,20 @@ import requests
 import codecs
 
 
-# Hàm Tạo thư mục và chuyển đến thư mục đó
-# Cần truyền vào cho hàm Tên thư mục
+# Hàm Tạo thư mục
 def tao_thu_muc(name):
     os.mkdir(name)
     os.chdir(name)
 
 
-# Hàm Lưu file
-# Truyền vào url cần lưu và Số thứ tự để đặt tên file cần lưu
+# Hàm Lưu file và truyền vào các url,số thứ tự để đặt tên file
 def luu_file(url, stt):
     file = codecs.open('file' + str(stt) + '.html', 'w', 'utf8')
     file.write(requests.get(url).text)
     file.close()
 
 
-# Hàm lưu tất cả các url đã tim được
-# Truyền vào một List, set, tuples,... các URL hợp lệ
+# Hàm lưu tất cả các url đã tìm được
 def luu_tat_ca_file(history, so_luong_trang):
     for (stt, url_con) in enumerate(history):
         if stt >= so_luong_trang:
