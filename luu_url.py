@@ -10,7 +10,7 @@ def tao_thu_muc(name):
     os.chdir(name)
 
 
-# Hàm Lưu file và truyền vào các url,số thứ tự để đặt tên file
+# Hàm Lưu file và truyền vào các url, số thứ tự để đặt tên file
 def luu_file(url, stt):
     file = codecs.open('file' + str(stt) + '.html', 'w', 'utf8')
     file.write(requests.get(url).text)
