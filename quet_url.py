@@ -26,7 +26,6 @@ def tim_url_lien_quan(url, url_chinh):
 
 
 # Tăng số lượng URL
-# Truyền vào các phần tử cần được duyệt và URL xuất phát
 # Trả về tập hợp các URL
 def them_va_duyet_hang_cho(hang_cho, url_chinh, so_luong_trang):
     history = hang_cho
